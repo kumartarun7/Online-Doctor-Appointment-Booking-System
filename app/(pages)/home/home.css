@@ -8,20 +8,18 @@
 margin: 0;
 padding: 0;
 box-sizing: border-box;
+font-family: 'Manrope',sans-serif;
 }
 
 
 
 body{
-  font-size: 'Manrope',sans-serif;
+  font-family: 'Manrope',sans-serif;
 }
 
 @layer components{
-
-
-
   .container{
-    @apply max-w-full w-[1440px] px-5 mx-auto py-[35px]
+    @apply max-w-full w-[1440px] px-5 mx-auto
   }
   .btn{
     @apply bg-primaryColor py-[15px] px-[35px] rounded-[50px] text-white font-[600] mt-[38px]
@@ -35,18 +33,22 @@ body{
   }
 
   .header{
-    @apply bg-[#B1D4E0] bg-no-repeat bg-cover w-full h-[70px] leading-[100px]
+    @apply bg-[url(/assets/images/mask.png)] bg-no-repeat bg-cover w-full h-[100px] leading-[100px]
+  }
+
+  .hero__section{
+    @apply bg-[url(/assets/images/hero-bg.png)] 
   }
 }
 
 @media screen and (max-width:1024px) {
   .container{
-    @apply py-[35px];
+    @apply w-full;
   }
-  /* section{
+  section{
     @apply py-[350px];
   }
-   */
+  
 }
 
 
@@ -61,3 +63,6 @@ body{
 }
 
 
+.h1{
+    font-family: 'Manrope',sans-serif;
+}
