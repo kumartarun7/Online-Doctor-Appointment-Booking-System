@@ -1,36 +1,32 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Online Doctor Appointment Booking System
 
-## Getting Started
+Description:
+This project is an online platform designed to facilitate booking appointments with doctors. Users can register as either doctors or patients. Doctors can create profiles and list their availability, while patients can search for doctors and book appointments based on their requirements. The system handles secure payments through Stripe and stores data using MongoDB. Firebase is utilized for image storage. The frontend is built with Next.js and Tailwind CSS, while the backend functionalities are implemented using JavaScript.
 
-First, run the development server:
+Features:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+User Authentication: Users can register as doctors or patients and login securely using JWT authentication.
+Doctor Profile Creation: Doctors can create detailed profiles, including their specialty, availability, and fees.
+Appointment Booking: Patients can search for doctors based on various filters and book appointments according to their preferences.
+Dashboard: Both doctors and patients have personalized dashboards where they can manage their appointments and profiles.
+Secure Payments: Stripe integration ensures secure payment processing for appointment bookings.
+Image Storage: Firebase is used for storing images related to doctors' profiles.
+Technologies Used:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Next.js
+Tailwind CSS
+MongoDB
+JWT Authentication
+JavaScript
+Firebase (for image storage)
+Stripe (for secure payments)
+Setup Instructions:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Clone the repository to your local machine.
+Navigate to the project directory.
+Install dependencies using npm install.
+Set up MongoDB and create necessary collections.
+Configure Firebase for image storage and obtain necessary credentials.
+Set up Stripe account and obtain API keys.
+Configure environment variables for MongoDB URI, Firebase credentials, and Stripe API keys.
+Run the application using npm run dev.
