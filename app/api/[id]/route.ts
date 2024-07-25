@@ -11,7 +11,7 @@ export async function GET(request: NextRequest,{params}:any){
         const id=params.id;
 
          const data= await  Doctors.findById(id); 
-         console.log(data);
+        //  console.log(data);
          return NextResponse.json(data);
     
     }

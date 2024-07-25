@@ -12,7 +12,7 @@ try{
 const reqBody=await request.json();
 const {name,email,password,phone,imageurl,userType}=reqBody;
 
-console.log(reqBody);
+// console.log(reqBody);
 
 const user= await Doctors.findOne({email})
 
@@ -33,7 +33,7 @@ const newUser = new Doctors({
 })
 
 const savedUser=await newUser.save()
-console.log(savedUser);
+// console.log(savedUser);
 
 return NextResponse.json({message:"User created successfully",success:true,savedUser},
     {status: 200})

@@ -5,7 +5,7 @@ export async function POST(request:NextRequest) {
   const item = await request.json();
 
 
-console.log(item);
+// console.log(item);
 
   // const transformedItem = {
   //   price_data: {

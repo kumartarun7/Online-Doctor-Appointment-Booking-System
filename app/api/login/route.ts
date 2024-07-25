@@ -13,7 +13,7 @@ try{
 const reqBody=await request.json();
 const {email,password}=reqBody;
 
-console.log(reqBody);
+// console.log(reqBody);
 
 const user= await Doctors.findOne({email})
 
