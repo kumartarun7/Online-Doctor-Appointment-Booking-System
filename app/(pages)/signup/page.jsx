@@ -44,13 +44,13 @@ const page = () => {
       (snapshot) => {
         
         const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-        console.log('Upload is ' + progress + '% done');
+        // console.log('Upload is ' + progress + '% done');
         switch (snapshot.state) {
           case 'paused':
-            console.log('Upload is paused');
+            // console.log('Upload is paused');
             break;
           case 'running':
-            console.log('Upload is running');
+            // console.log('Upload is running');
             break;
         }
       }, 
@@ -59,7 +59,7 @@ const page = () => {
       () => {
       
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-          console.log('File available at', downloadURL);
+          // console.log('File available at', downloadURL);
           setFormData({...formData,imageurl: downloadURL})
           toast.success("Image added successfully");
         });
@@ -78,7 +78,7 @@ const page = () => {
         
         // Check the response status and data
         if (response && response.status === 200) {
-            console.log("Signup successful:", response.data);
+            // console.log("Signup successful:", response.data);
             toast.success("Signup Successfully!");
             router.push("/login");
         } else {

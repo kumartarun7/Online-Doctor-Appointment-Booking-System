@@ -8,7 +8,7 @@ import SidePanel from '../SidePanel.jsx'
 import axios from 'axios';
 
 
-const page = ({params}:any) => {
+const page = ({params}) => {
   const [data,setData]=useState({});
 
     const  getData = async () => {

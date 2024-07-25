@@ -1,63 +1,54 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Nunito+Sans:ital,opsz,wght@0,6..12,200;0,6..12,300;0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;0,6..12,800;1,6..12,200;1,6..12,300;1,6..12,400;1,6..12,500;1,6..12,600;1,6..12,700&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200;1,400;1,500;1,600&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300&display=swap');
 
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-*{
-margin: 0;
-padding: 0;
-box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+body {
+  font-family: 'Manrope', sans-serif;
+} 
 
-
-body{
-  font-size: 'Manrope',sans-serif;
-}
-
-@layer components{
-
-
-
-  .container{
-    @apply max-w-full w-[1440px] px-5 mx-auto py-[35px]
-  }
-  .btn{
-    @apply bg-primaryColor py-[15px] px-[35px] rounded-[50px] text-white font-[600] mt-[38px]
-  }
-  .heading{
-    @apply text-[44px] leading-[54px] font-[700] text-headingColor
+@layer components {
+  .container {
+    @apply max-w-full w-[1440px] px-5 mx-auto py-[35px];
   }
 
-  .text_para{
-    @apply text-[18px] leading-[30px] font-[400] text-textColor mt-[18px]
+  .btn {
+    @apply bg-primaryColor py-[15px] px-[35px] rounded-[50px] text-white font-[600] mt-[38px];
   }
 
-  .header{
-    @apply bg-[#B1D4E0] bg-no-repeat bg-cover w-full h-[70px] leading-[100px]
+  .heading {
+    @apply text-[44px] leading-[54px] font-[700] text-headingColor;
+  }
+
+  .text_para {
+    @apply text-[18px] leading-[30px] font-[400] text-textColor mt-[18px];
+  }
+
+  .header {
+    @apply bg-[#B1D4E0] bg-no-repeat bg-cover w-full h-[70px] leading-[100px];
   }
 }
 
-@media screen and (max-width:1024px) {
-  .container{
+@media screen and (max-width: 1024px) {
+  .container {
     @apply py-[35px];
   }
-  /* section{
-    @apply py-[350px];
-  }
-   */
 }
 
-
-@media only screen and (max-width: 768px){
-  .heading{
-    @apply text-[32px] leading-[36px] ;
+@media only screen and (max-width: 768px) {
+  .heading {
+    @apply text-[32px] leading-[36px];
   }
 
-  .text_para{
+  .text_para {
     @apply text-[16px] leading-7 mt-3;
   }
-}
-
-
+} 

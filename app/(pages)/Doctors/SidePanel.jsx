@@ -31,7 +31,7 @@ const SidePanel = (props) => {
     if(loged){
 
      const response=await axios.get(`/api/${loged}`)
-     console.log(response.data);
+    //  console.log(response.data);
      setData(response.data);
     }
    
@@ -62,7 +62,7 @@ const updatedoctor={
   BookedOn:formatdate()
 }
 
-  console.log(props.data.appointments)
+  // console.log(props.data.appointments)
   
 
   let appointments=[];
@@ -71,9 +71,9 @@ const updatedoctor={
     // Spread the existing appointments and add updatedoctor
      appointments = [...props.data.appointments, updatedoctor];
     // Now you can use appointments
-    console.log(appointments);
+    // console.log(appointments);
 } else {
-    console.error("props.data.appointments is not defined or not iterable");
+    // console.error("props.data.appointments is not defined or not iterable");
 }
   
 
@@ -94,23 +94,27 @@ const updatedoctor={
 
 
 
- console.log(formatdate());
+//  console.log(formatdate());
 
   const createCheckOutSession = async () => {
     setLoading(true);
     toast.success("wait a second for checkout");
 
-
-   const res=await axios.put(`/api/update/${loged}`,{bookings})
-    const Res=await axios.put(`/api/update/${props.data._id}`,{appointments})
-    const stripe = await stripePromise;
-    const checkoutSession = await axios.post('/api/checkout_session', item);
-    const result = await stripe.redirectToCheckout({
-      sessionId: checkoutSession.data.id,
-    });
-    if (result.error) {
-      alert(result.error.message);
+    try {
+      const res=await axios.put(`/api/update/${loged}`,{bookings})
+      const Res=await axios.put(`/api/update/${props.data._id}`,{appointments})
+      const stripe = await stripePromise;
+      const checkoutSession = await axios.post('/api/checkout_session', item);
+      const result = await stripe.redirectToCheckout({
+        sessionId: checkoutSession.data.id,
+      });
+      
+    } 
+    catch (error) {
+      toast.error("Please login first before checkout");
+      
     }
+
     setLoading(false);
   };
   

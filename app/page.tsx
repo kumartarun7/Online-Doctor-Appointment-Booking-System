@@ -1,18 +1,15 @@
 "use client"
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
+import Home from "./(pages)/home/Temp";
 
-export default function Home() {
+export default function page() {
 
-const router=useRouter();
-useEffect(()=>{
 
-router.push('/home')
-
-})
 
   return (
     <>
+    <Home/>
 
     </>
   );

@@ -2,7 +2,7 @@
 import React from 'react'
 import { formateDate } from '@/app/utils/formatDate'
 
-const Appointments = (props:object) => {
+const Appointments = (props) => {
   return (
    <table className='w-full text-left text-sm text-gray-500'>
     <thead className='text-xs text-gray-700 uppercase bg-gray-50'>
@@ -22,7 +22,7 @@ const Appointments = (props:object) => {
    
    <tbody>
     {
-        props.data.appointments?.map((item:any)=><tr>
+        props.data.appointments?.map((item)=><tr>
 
        <th  scope='row' className='flex items-center px-6 py-4 text-gray-900 whitespace-nowrap'>
          <div className='pl-3'>

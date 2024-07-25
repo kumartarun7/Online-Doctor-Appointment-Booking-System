@@ -1,18 +1,12 @@
 
-
-
 import React, { useEffect } from "react";
 import Link from "next/link";
 
 
-
-const page = () => {
-
-
-
+const Home = () => {
   return (
-    <>
-    <section className="bg-[#B1D4E0] p-0 m-0 pt-3">
+    <div>
+         <section className="bg-[#B1D4E0] p-0 m-0 pt-3">
                 <div className="max-w-screen-xl mx-auto text-gray-600 gap-x-12 items-center justify-between overflow-hidden md:flex md:px-10">
                     <div className="flex-none space-y-5 px-4 sm:max-w-lg md:px-0 lg:max-w-xl">
                        
@@ -94,8 +88,9 @@ const page = () => {
     </div>
   </div>
 </section>
-    </>
-  );
-};
+      
+    </div>
+  )
+}
 
-export default page;
+export default Home

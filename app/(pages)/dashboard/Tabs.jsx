@@ -4,13 +4,13 @@ import { useRouter } from 'next/navigation'
 import React from 'react'
 import { BiMenu } from 'react-icons/bi'
 
-const Tabs = ({tab,setTab}:any) => {
+const Tabs = ({tab,setTab}) => {
   const router = useRouter();
   const{setloged}=useAppContext();
 
   const logout=async()=>{
     const res=await axios.get('/api/logout');
-    console.log(res.data);
+    // console.log(res.data);
     setloged(null);
     router.push('/home');
   }

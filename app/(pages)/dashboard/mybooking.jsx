@@ -1,9 +1,9 @@
 import Doctorcard from '@/app/components/Doctorcard'
 import React from 'react'
 
-const Mybooking = (props:object) => {
+const Mybooking = (props) => {
 
-console.log(props.data);
+// console.log(props.data);
 
 
   return (

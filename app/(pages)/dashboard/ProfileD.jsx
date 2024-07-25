@@ -14,7 +14,7 @@ import { useAppContext } from '@/context/UserContextProvider';
 
 
 
-const ProfileD = (props:object) => {
+const ProfileD = (props) => {
   const{loged,setloged}=useAppContext();
   const[data,setData]=useState(props.data);
 
@@ -52,20 +52,20 @@ const ProfileD = (props:object) => {
     })
 
 
-    const  handleInputChange=(e:any)=>{
+    const  handleInputChange=(e)=>{
         setFormData({...formData, [e.target.name]: e.target.value})
     }
 
-   const updateProfileHandler=async(e:any)=>{
+   const updateProfileHandler=async(e)=>{
        e.preventDefault();
    }
 
 
-   const deleteItem=(key:any,index:any)=>{
+   const deleteItem=(key,index)=>{
     setFormData(prevFormData=>({...prevFormData,[key]:prevFormData[key].filter((_,i)=>i!==index)}))
    }
 
-  const addItem=(key:any,item:any)=>{
+  const addItem=(key,item)=>{
 
     setFormData(prevFormData=>({...prevFormData,[key]:[ ...prevFormData[key], item ]}))
 
@@ -92,7 +92,7 @@ const ProfileD = (props:object) => {
        })
   }
 
-   const addQualifications=(e:any)=>{
+   const addQualifications=(e)=>{
       e.preventDefault();
         
       addItem('qualifications',{
@@ -102,14 +102,14 @@ const ProfileD = (props:object) => {
 
    }
 
-   const handleQualificaitonChange=(event:any,index:any)=>{
+   const handleQualificaitonChange=(event,index)=>{
 
       handleReusableInputChangeFunc('qualifications',index,event)
 
    }
    
 
-   const deleteQualifications=(e:any,index:any)=>{
+   const deleteQualifications=(e,index)=>{
     e.preventDefault();
     deleteItem('qualifications',index);
    }
@@ -117,7 +117,7 @@ const ProfileD = (props:object) => {
     
 
 
-   const addExperiences=(e:any)=>{
+   const addExperiences=(e)=>{
     e.preventDefault();
       
     addItem('experiences',{
@@ -127,19 +127,19 @@ const ProfileD = (props:object) => {
 
  }
 
- const handleExperienceChange=(event:any,index:any)=>{
+ const handleExperienceChange=(event,index)=>{
 
   handleReusableInputChangeFunc('experiences',index,event)
 
 }
 
 
-const deleteexperiences=(e:any,index:any)=>{
+const deleteexperiences=(e,index)=>{
   e.preventDefault();
   deleteItem('experiences',index);
  }
 
-const addSlots=(e:any)=>{
+const addSlots=(e)=>{
   e.preventDefault();
     
   addItem('timeSlots',{
@@ -149,12 +149,12 @@ const addSlots=(e:any)=>{
 
 }
 
-const handleSlotChange=(event:any,index:any)=>{
+const handleSlotChange=(event,index)=>{
 handleReusableInputChangeFunc('timeSlots',index,event)
 
 }
    
-const deleteSlots=(e:any,index:any)=>{
+const deleteSlots=(e,index)=>{
   e.preventDefault();
   deleteItem('timeSlots',index);
  }
@@ -166,12 +166,12 @@ const deleteSlots=(e:any,index:any)=>{
       
    
     const response = await axios.put(`/api/update/${loged}`, formData);
-    console.log(response);
+    // console.log(response);
           
       
      
-  } catch (error:any) {
-      console.error("Update failed:", error.message);
+  } catch (error) {
+      // console.error("Update failed:", error.message);
   }
 };
 

@@ -5,7 +5,7 @@ import Doctorabout from '../Doctors/Doctorabout';
 import ProfileD from './ProfileD';
 import Appointments from './Appointments';
 
-const Doctorsaccount = (props:any) => {
+const Doctorsaccount = (props) => {
   
 
     const [tab,setTab]=useState("overview");

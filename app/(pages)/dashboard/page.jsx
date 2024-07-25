@@ -21,7 +21,7 @@ const page = () => {
 
       if(loged){
        const response=await axios.get(`/api/${loged}`)
-       console.log(response.data);
+      //  console.log(response.data);
        setuser(response.data.userType)
        setData(response.data);
       }
@@ -40,7 +40,7 @@ const page = () => {
 
     const logout=async()=>{
       const res=await axios.get('/api/logout');
-      console.log(res.data);
+      // console.log(res.data);
       setloged(null);
       router.push('/home');
     }

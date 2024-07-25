@@ -21,6 +21,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/(pages)/signup/page.tsx", "app/(pages)/signup/page.tsx", "app/Firebase.js", "context/UserContextProvider.jsx", "context/UserContext.js", "app/(pages)/dashboard/page.jsx", "app/api/checkout_session/route.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/(pages)/signup/page.tsx", "app/(pages)/signup/page.tsx", "app/Firebase.js", "context/UserContextProvider.jsx", "context/UserContext.js", "app/(pages)/dashboard/page.jsx", "app/api/checkout_session/route.ts", "app/(pages)/Doctors/page.jsx", "app/(pages)/Doctors/[id]/page.jsx", "app/(pages)/dashboard/Tabs.jsx", "app/(pages)/dashboard/ProfileD.jsx", "app/(pages)/dashboard/profile.jsx", "app/(pages)/dashboard/mybooking.jsx", "app/(pages)/dashboard/doctorsaccount.jsx", "app/(pages)/dashboard/Appointments.jsx"],
   "exclude": ["node_modules"]
 }

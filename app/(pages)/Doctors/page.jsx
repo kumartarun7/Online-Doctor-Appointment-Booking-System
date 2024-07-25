@@ -15,7 +15,7 @@ const page = () => {
     const getdata=async ()=>{
 
          const response=await axios.get("/api/dataall");
-         console.log(response.data);
+        //  console.log(response.data);
          setData(response.data)
 
     }
