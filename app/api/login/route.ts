@@ -1,63 +1,66 @@
-import {connect} from "@/dbconfig/dbconfig"
-import Doctors from "@/models/doctorschema"
+import { connect } from "@/dbconfig/dbconfig";
+import Doctors from "@/models/doctorschema";
 import { NextRequest, NextResponse } from "next/server";
 import bcryptjs from "bcryptjs";
-import jwt from  "jsonwebtoken";
+import jwt from "jsonwebtoken";
 
 connect();
 
+export async function POST(request: NextRequest) {
+  try {
+    const reqBody = await request.json();
+    const { email, password } = reqBody;
 
-export async function POST(request: NextRequest){
-try{
+    console.log("Request Body:", reqBody);
 
-const reqBody=await request.json();
-const {email,password}=reqBody;
+    // Check if the user exists
+    const user = await Doctors.findOne({ email });
 
-// console.log(reqBody);
+    if (!user) {
+      return NextResponse.json({ error: "User does not exist" }, { status: 400 });
+    }
 
-const user= await Doctors.findOne({email})
+    // Validate the password
+    const validPassword = await bcryptjs.compare(password, user.password);
 
-if(!user){
-    return NextResponse.json({error:"User does not exist"},{status:400})
-}
+    if (!validPassword) {
+      return NextResponse.json({ error: "Invalid Password" }, { status: 400 });
+    }
 
-const validPassword = await bcryptjs.compare(password,user.password);
+    // Create token data
+    const tokenData = {
+      id: user._id,
+      name: user.name,
+      email: user.email,
+      imageurl: user.imageurl,
+    };
 
-if(!validPassword){
-    return NextResponse.json({error:"Invalid Password"},{status:400})
+    // Check if TOKEN_SECRECT is properly set
+    if (!process.env.TOKEN_SECRECT) {
+      throw new Error("TOKEN_SECRECT is not set or defined.");
+    }
 
-}
+    // Log TOKEN_SECRECT for debugging purposes
+    console.log("TOKEN_SECRECT:", process.env.TOKEN_SECRECT);
 
-//create token data
+    // Create JWT token
+    const token = jwt.sign(tokenData, process.env.TOKEN_SECRECT, { expiresIn: "1d" });
+    console.log("Generated JWT token:", token);
 
-const tokenData={
-    id: user._id,
-    name:user.name,
-    email:user.email,
-    imageurl:user.imageurl
+    // Create response
+    const response = NextResponse.json({
+      message: "Login successful",
+      success: true,
+    });
 
-}
+    // Set token in cookies with httpOnly flag
+    response.cookies.set("token", token, { httpOnly: true });
+    console.log("Token set in cookies");
 
-//create token
+    return response;
 
-const token=await jwt.sign(tokenData, process.env.TOKEN_SECRECT!,{expiresIn:"1d"})
-const response=NextResponse.json({
-    message: "Login successful",
-    success: true,
-})
-
-response.cookies.set("token",token,{httpOnly:true})
-
-return response;
-}
-
-
-catch(error:any){
-    return NextResponse.json({error:error.message},
-    {status: 500})
-
-}
-
-
-
+  } catch (error: any) {
+    console.error("Login error:", error); // Log the error
+    return NextResponse.json({ error: error.message }, { status: 500 });
+  }
 }

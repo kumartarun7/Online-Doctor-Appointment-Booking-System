@@ -13,8 +13,6 @@ const page = () => {
 
   const{loged,setloged}=useAppContext();
   
-
-
   const router = useRouter();
      const [formData,setFormData]=useState({
       email:'',
@@ -33,16 +31,15 @@ const page = () => {
       try{
 
         const response=await axios.post("/api/login",formData);
-        // console.log("Login success", response.data);
+        console.log("Login success", response.data);
         toast.success('Login Successfully')
 
         location.reload();
         
-        
         }
         catch(error:any){
           toast.error("invalid login and password")
-          //  console.log("Login failed",error.message);
+           console.log("Login failed",error.message);
         }
   
   
@@ -50,7 +47,7 @@ const page = () => {
 
     const getid=async ()=>{
       const response=await axios.get("/api/getid");
-        // console.log(response.data);
+        console.log(response.data);
        
     }
 
